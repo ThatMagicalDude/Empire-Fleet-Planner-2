@@ -19,11 +19,6 @@ Static GitHub Pages planner for one Empire fleet.
 - Voyage production updates using the same Weirwood, Enchant Fleet, ritual, and debuff controls.
 - Options can use ranks up to 20, while trade ports still use the port table maximum.
 
-## GitHub Pages
-
-Upload all files to the root of your repository, replacing the old versions. Do not place the JSON files in a subfolder unless you also update the fetch paths in `script.js`.
-
-
 ## Updated rituals
 
 Rituals now load from `rituals.json`, generated from `Fleet rituals.xlsx`. The Enchant Fleet / Ritual dropdown is filtered by Fleet Activity: Trading shows Trading and All rituals; Raiding shows Raiding and All rituals; Guarding, Questing, and Scouting work the same way.
