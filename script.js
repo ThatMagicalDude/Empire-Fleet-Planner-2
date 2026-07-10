@@ -72,9 +72,16 @@ function getElements() {
     ritualNote: document.querySelector("#ritualNote"),
     modifierBreakdown: document.querySelector("#modifierBreakdown"),
     regionFilterControl: document.querySelector("#regionFilterControl"),
-    regionFilter: document.querySelector("#regionFilter"),
-    materialFilter: document.querySelector("#materialFilter"),
-    searchInput: document.querySelector("#searchInput"),
+materialFilterControl: document.querySelector("#materialFilterControl"),
+searchControl: document.querySelector("#searchControl"),
+
+visibleCountPanel: document.querySelector("#visibleCountPanel"),
+materialCountPanel: document.querySelector("#materialCountPanel"),
+selectedChoicePanel: document.querySelector("#selectedChoicePanel"),
+
+regionFilter: document.querySelector("#regionFilter"),
+materialFilter: document.querySelector("#materialFilter"),
+searchInput: document.querySelector("#searchInput"),
     resetFilters: document.querySelector("#resetFilters"),
     visibleCount: document.querySelector("#visibleCount"),
     visibleCountLabel: document.querySelector("#visibleCountLabel"),
@@ -101,8 +108,10 @@ function requiredElementsExist() {
   const required = [
     "activityType", "weirwoodUpgrade", "debuffLevel", "ritualSelect",
     "effectiveLevelDisplay", "effectiveLevelNote", "ritualNote", "modifierBreakdown",
-    "regionFilterControl", "regionFilter", "materialFilter", "searchInput", "resetFilters",
-    "visibleCount", "visibleCountLabel", "materialCount", "selectedPortShort", "selectedChoiceLabel", "portChoiceControl", "optionChoiceControl",
+    "regionFilterControl", "materialFilterControl", "searchControl",
+"visibleCountPanel", "materialCountPanel", "selectedChoicePanel",
+"regionFilter", "materialFilter", "searchInput", "resetFilters",
+"visibleCount", "visibleCountLabel", "materialCount", "selectedPortShort", "selectedChoiceLabel",, "portChoiceControl", "optionChoiceControl",
     "chosenPort", "chosenOption", "portsHeading", "listEyebrow", "ports", "emptyState",
     "productionSummary", "copySummary", "dialog", "closeDialog", "dialogContent"
   ];
@@ -539,9 +548,17 @@ function renderList() {
 
 function renderActivityControls() {
   const trade = isTradeActivity();
+
   els.portChoiceControl.hidden = !trade;
   els.optionChoiceControl.hidden = trade;
+
   els.regionFilterControl.hidden = !trade;
+  els.materialFilterControl.hidden = !trade;
+  els.searchControl.hidden = !trade;
+
+  els.visibleCountPanel.hidden = !trade;
+  els.materialCountPanel.hidden = !trade;
+  els.selectedChoicePanel.hidden = !trade;
 
   els.listEyebrow.textContent = trade ? "Trading Ports" : "Adventure";
   els.portsHeading.textContent = trade ? "Available destinations" : `${getActivityById()?.name || "Fleet"} adventures`;
