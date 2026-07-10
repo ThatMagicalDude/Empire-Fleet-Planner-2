@@ -685,7 +685,6 @@ function copySummary() {
     `Choice: ${selection ? selection.name : "None selected"}`,
     `Region / Type: ${selection ? selection.subheading : "N/A"}`,
     `Fleet level: ${state.baseLevel}`,
-    `Effective fleet rank: ${rank} (production row ${effectiveLevel})`,
     `${RITUALS[state.ritual]?.name || "No ritual"}; Weirwood +${state.weirwoodUpgrade}, Debuff -${state.debuff}`,
     "",
     "Voyage production:"
