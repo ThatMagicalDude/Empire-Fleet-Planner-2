@@ -11,15 +11,6 @@ const DEFAULT_RITUALS = {
     ringsBonus: 0,
     duration: "",
     note: "No ritual selected."
-  },
-  enchantFleet: {
-    name: "Enchant Fleet",
-    option: "All",
-    rankModifier: 1,
-    multiplier: 1,
-    ringsBonus: 0,
-    duration: "next voyage",
-    note: "Increases fleet strength by 1 rank for one voyage."
   }
 };
 
