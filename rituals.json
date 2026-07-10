@@ -1,0 +1,127 @@
+{
+  "version": "1.0",
+  "source": "Fleet rituals.xlsx",
+  "rituals": [
+    {
+      "id": "blood-and-salt",
+      "name": "Blood and Salt",
+      "option": "Raiding",
+      "effect": "Increases strength by an additional 5 ranks over the next Voyage",
+      "rankModifier": 5,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+    },
+    {
+      "id": "foam-and-spittle-of-the-furious-sea",
+      "name": "Foam and Spittle of the Furious Sea",
+      "option": "All",
+      "effect": "Reduces production by 2 ranks over the next Voyage",
+      "rankModifier": -2,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Reduces production by 2 ranks over the next Voyage"
+    },
+    {
+      "id": "golden-voyage",
+      "name": "Golden Voyage",
+      "option": "Questing",
+      "effect": "Increases strength by an additional 5 ranks over the next Voyage",
+      "rankModifier": 5,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+    },
+    {
+      "id": "like-water-through-your-fingers",
+      "name": "Like Water Through Your Fingers",
+      "option": "All",
+      "effect": "Reduces production by three quarters for a year (4 voyages)",
+      "rankModifier": 0,
+      "multiplier": 0.25,
+      "ringsBonus": 0,
+      "duration": "1 year / 4 voyages",
+      "note": "Reduces production by three quarters for a year (4 voyages). Outputs are rounded down."
+    },
+    {
+      "id": "muffled-oar",
+      "name": "Muffled Oar",
+      "option": "Scouting",
+      "effect": "Increases strength by an additional 5 ranks over the next Voyage",
+      "rankModifier": 5,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+    },
+    {
+      "id": "piranhas-devour-the-kraken",
+      "name": "Piranhas Devour the Kraken",
+      "option": "Campaigning",
+      "effect": "Increases strength by an additional 5 ranks over the next Voyage",
+      "rankModifier": 5,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+    },
+    {
+      "id": "sular-s-promise",
+      "name": "Sular's Promise",
+      "option": "Trading",
+      "effect": "Increases strength by an additional 6 ranks over the next Voyage",
+      "rankModifier": 6,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Increases strength by an additional 6 ranks over the next Voyage"
+    },
+    {
+      "id": "the-lure-of-distant-shores",
+      "name": "The Lure of Distant Shores",
+      "option": "Trading",
+      "effect": "Increases strength by an additional 5 ranks over the next Voyage",
+      "rankModifier": 5,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+    },
+    {
+      "id": "winds-of-fortune",
+      "name": "Winds of Fortune",
+      "option": "Trading",
+      "effect": "Produces an additional 120 rings over the next Voyage",
+      "rankModifier": 0,
+      "multiplier": 1,
+      "ringsBonus": 120,
+      "duration": "next voyage",
+      "note": "Produces an additional 120 rings over the next Voyage"
+    },
+    {
+      "id": "winter-s-ghosts",
+      "name": "Winter's Ghosts",
+      "option": "All",
+      "effect": "Reduces production by 1 rank over the next Voyage",
+      "rankModifier": -1,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Reduces production by 1 rank over the next Voyage"
+    },
+    {
+      "id": "wolves-of-the-hungry-sea",
+      "name": "Wolves of the Hungry Sea",
+      "option": "Guarding",
+      "effect": "Increases strength by an additional 5 ranks over the next Voyage",
+      "rankModifier": 5,
+      "multiplier": 1,
+      "ringsBonus": 0,
+      "duration": "next voyage",
+      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+    }
+  ]
+}

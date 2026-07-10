@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empire Fleet Planner</title>
+  <meta name="description" content="Interactive one-fleet activity planner for Empire downtime, including trading ports, adventures, Weirwood upgrades, ritual buffs, and debuffs." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Downtime Tool</p>
+      <h1>Empire Fleet Planner</h1>
+      <p class="subtitle">Choose what your fleet is doing during downtime. Trading uses ports and destinations; other fleet activities use adventures instead. Level 5 is the default fleet, Levels 1–4 represent debuffed results, and Enchant Fleet contains the player-cast ritual buffs and debuffs for the voyage.</p>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section class="panel controls-panel" aria-labelledby="controls-heading">
+      <div class="section-title-row">
+        <div>
+          <p class="eyebrow">Fleet Setup</p>
+          <h2 id="controls-heading">Calculate effective fleet level</h2>
+        </div>
+        <button class="ghost-button" id="resetFilters" type="button">Reset</button>
+      </div>
+
+      <div class="controls-grid controls-grid--fleet">
+        <label class="control control--wide">
+          <span>Fleet Activity</span>
+          <select id="activityType"></select>
+        </label>
+
+        <label class="control">
+          <span>Base Fleet</span>
+          <select id="baseFleetLevel" disabled>
+            <option value="5">Level 5 default</option>
+          </select>
+        </label>
+
+        <label class="control">
+          <span>Weirwood Upgrade</span>
+          <select id="weirwoodUpgrade"></select>
+        </label>
+
+        <label class="control">
+          <span>Enchant Fleet / Ritual</span>
+          <select id="ritualSelect"></select>
+        </label>
+
+        <label class="control">
+          <span>Other Debuff</span>
+          <select id="debuffLevel"></select>
+        </label>
+      </div>
+
+      <div class="effective-box" aria-live="polite">
+        <div>
+          <span class="stat-card__label">Effective Fleet Level</span>
+          <strong id="effectiveLevelDisplay">5</strong>
+        </div>
+        <p id="effectiveLevelNote">Default fleet level with no modifiers.</p>
+      </div>
+
+      <p id="ritualNote" class="ritual-note">No ritual selected.</p>
+
+      <div class="controls-grid">
+        <label class="control" id="regionFilterControl">
+          <span>Region</span>
+          <select id="regionFilter">
+            <option value="all">All regions</option>
+          </select>
+        </label>
+
+        <label class="control">
+          <span>Material</span>
+          <select id="materialFilter">
+            <option value="all">All materials</option>
+          </select>
+        </label>
+
+        <label class="control control--wide">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Search port, region, or material..." />
+        </label>
+      </div>
+
+      <div class="stats-row" aria-live="polite">
+        <div class="stat-card">
+          <span class="stat-card__label" id="visibleCountLabel">Visible Ports</span>
+          <strong id="visibleCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Known Materials</span>
+          <strong id="materialCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label" id="selectedChoiceLabel">Selected Port</span>
+          <strong id="selectedPortShort">None</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="planner-layout">
+      <aside class="panel fleet-panel" aria-labelledby="fleet-heading">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">Planner</p>
+            <h2 id="fleet-heading">Your one fleet</h2>
+          </div>
+          <button class="ghost-button" id="copySummary" type="button">Copy summary</button>
+        </div>
+
+        <label class="control" id="portChoiceControl">
+          <span>Trading Port</span>
+          <select id="chosenPort"></select>
+        </label>
+
+        <label class="control" id="optionChoiceControl" hidden>
+          <span>Adventure</span>
+          <select id="chosenOption"></select>
+        </label>
+
+        <div class="modifier-breakdown" id="modifierBreakdown"></div>
+
+        <div class="summary-box">
+          <h3>Voyage production</h3>
+          <div id="productionSummary" class="summary-list"></div>
+        </div>
+      </aside>
+
+      <section class="ports-section" aria-labelledby="ports-heading">
+        <div class="section-title-row section-title-row--ports">
+          <div>
+            <p class="eyebrow" id="listEyebrow">Ports</p>
+            <h2 id="ports-heading">Available destinations</h2>
+          </div>
+        </div>
+        <div id="ports" class="ports-grid"></div>
+        <p id="emptyState" class="empty-state" hidden>No ports match those filters.</p>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="portDialog" class="port-dialog">
+    <button class="dialog-close" id="closeDialog" type="button" aria-label="Close">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
