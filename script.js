@@ -7,7 +7,7 @@ const DEFAULT_RITUALS = {
     name: "No ritual",
     option: "All",
     rankModifier: 0,
-    multiplier: 1,
+    multiplier: 1,          
     ringsBonus: 0,
     duration: "",
     note: "No ritual selected."
@@ -237,7 +237,7 @@ function populateModifierSelects() {
   els.activityType.innerHTML = "";
   const tradeOption = document.createElement("option");
   tradeOption.value = TRADE_ACTIVITY;
-  tradeOption.textContent = "Trade voyage — choose a port";
+  tradeOption.textContent = "Trading";
   els.activityType.appendChild(tradeOption);
 
   state.optionsData.options
