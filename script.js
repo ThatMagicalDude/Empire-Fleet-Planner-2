@@ -423,7 +423,7 @@ function getVisibleMaterials(materials, level = getEffectiveLevel()) {
 function renderEffectiveLevel() {
   const level = getEffectiveLevel();
   const ritual = RITUALS[state.ritual] || RITUALS.none;
-  const activityLabel = isTradeActivity() ? "Trade voyage" : getActivityById()?.name || "Fleet option";
+  const activityLabel = isTradeActivity() ? "Trading" : getActivityById()?.name || "Fleet option";
 
   els.effectiveLevelDisplay.textContent = level;
   els.effectiveLevelDisplay.classList.toggle("debuffed", level < DEFAULT_FLEET_LEVEL);
