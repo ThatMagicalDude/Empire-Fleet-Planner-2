@@ -671,25 +671,47 @@ function openDetails(kind, id) {
 function copySummary() {
   const selection = getCurrentSelection();
   const effectiveLevel = getEffectiveLevel();
+  const rank = getFleetRank(effectiveLevel);
+
+  const characterName = els.characterName.value.trim();
+  const fleetName = els.fleetName.value.trim();
+
   const lines = [
     "Empire Fleet Planner",
     "",
-    `Activity: ${isTradeActivity() ? "Trade voyage" : getActivityById()?.name}`,
+    `Character: ${characterName || "Not provided"}`,
+    `Fleet: ${fleetName || "Not provided"}`,
+    "",
+    `Activity: ${isTradeActivity() ? "Trading" : getActivityById()?.name}`,
     `Choice: ${selection ? selection.name : "None selected"}`,
     `Region / Type: ${selection ? selection.subheading : "N/A"}`,
-    `Effective rank: ${effectiveLevel}`,
-    `${RITUALS[state.ritual]?.name || "No ritual"}; Base ${state.baseLevel}, Weirwood +${state.weirwoodUpgrade}, Debuff -${state.debuff}`,
+    `Fleet level: ${state.baseLevel}`,
+    `Effective fleet rank: ${rank} (production row ${effectiveLevel})`,
+    `${RITUALS[state.ritual]?.name || "No ritual"}; Weirwood +${state.weirwoodUpgrade}, Debuff -${state.debuff}`,
     "",
     "Voyage production:"
   ];
 
   if (selection) {
     const produced = selection.materials
-      .map(material => ({ name: material.name, amount: getProductionAmount(material, effectiveLevel) }))
+      .map(material => ({
+        name: material.name,
+        amount: getProductionAmount(material, effectiveLevel)
+      }))
       .filter(item => item.amount > 0);
+
     const ritual = RITUALS[state.ritual] || RITUALS.none;
-    if (ritual.ringsBonus && !produced.some(item => isRingsMaterial(item.name))) produced.push({ name: "Money (rings)", amount: ritual.ringsBonus });
-    produced.forEach(item => lines.push(`${item.name}: ${item.amount}`));
+
+    if (ritual.ringsBonus && !produced.some(item => isRingsMaterial(item.name))) {
+      produced.push({
+        name: "Money (rings)",
+        amount: ritual.ringsBonus
+      });
+    }
+
+    produced.forEach(item => {
+      lines.push(`${item.name}: ${item.amount}`);
+    });
   }
 
   navigator.clipboard.writeText(lines.join("\n"))
