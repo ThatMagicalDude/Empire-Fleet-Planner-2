@@ -165,6 +165,10 @@ function getEffectiveLevel() {
   return Math.max(MIN_FLEET_LEVEL, Math.min(getActivityMaxLevel(), raw));
 }
 
+function getFleetRank(level = getEffectiveLevel()) {
+  return Math.max(1, level - 4);
+}
+
 function isRingsMaterial(name) {
   return name.toLowerCase().includes("money") || name.toLowerCase().includes("rings");
 }
