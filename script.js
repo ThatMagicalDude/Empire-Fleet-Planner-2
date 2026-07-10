@@ -212,12 +212,22 @@ function populateRitualSelect() {
   }
 
   available.forEach(([key, ritual]) => {
-    const option = document.createElement("option");
-    option.value = key;
-    const optionScope = ritual.option && ritual.option !== "All" ? ` — ${ritual.option}` : "";
-    const duration = ritual.duration ? ` — ${ritual.duration}` : "";
-    option.textContent = `${ritual.name}${optionScope}${duration}`;
-    els.ritualSelect.appendChild(option);
+  const option = document.createElement("option");
+  option.value = key;
+
+  const optionScope =
+    ritual.option && ritual.option !== "All"
+      ? ` — ${ritual.option}`
+      : "";
+
+  const shortDescription =
+    ritual.note && ritual.note !== ritual.name
+      ? ` — ${ritual.note}`
+      : "";
+
+  option.textContent = `${ritual.name}${optionScope}${shortDescription}`;
+
+  els.ritualSelect.appendChild(option);
   });
 
   els.ritualSelect.value = state.ritual;
