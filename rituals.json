@@ -11,18 +11,18 @@
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+      "note": "Increases strength by an additional 5"
     },
     {
       "id": "foam-and-spittle-of-the-furious-sea",
       "name": "Foam and Spittle of the Furious Sea",
       "option": "All",
-      "effect": "Reduces production by 2 ranks over the next Voyage",
+      "effect": "Reduces production by 2 ranks",
       "rankModifier": -2,
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Reduces production by 2 ranks over the next Voyage"
+      "note": "Reduces production by 2 ranks"
     },
     {
       "id": "golden-voyage",
@@ -33,7 +33,7 @@
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+      "note": "Increases strength by an additional 5 ranks"
     },
     {
       "id": "like-water-through-your-fingers",
@@ -44,7 +44,7 @@
       "multiplier": 0.25,
       "ringsBonus": 0,
       "duration": "1 year / 4 voyages",
-      "note": "Reduces production by three quarters for a year (4 voyages). Outputs are rounded down."
+      "note": "Reduces production by three quarters"
     },
     {
       "id": "muffled-oar",
@@ -55,7 +55,7 @@
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+      "note": "Increases strength by an additional 5 ranks"
     },
     {
       "id": "piranhas-devour-the-kraken",
@@ -66,7 +66,7 @@
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+      "note": "Increases strength by an additional 5 ranks"
     },
     {
       "id": "sular-s-promise",
@@ -77,7 +77,7 @@
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Increases strength by an additional 6 ranks over the next Voyage"
+      "note": "Increases strength by an additional 6 ranks"
     },
     {
       "id": "the-lure-of-distant-shores",
@@ -88,7 +88,7 @@
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+      "note": "Increases strength by an additional 5 ranks"
     },
     {
       "id": "winds-of-fortune",
@@ -99,7 +99,7 @@
       "multiplier": 1,
       "ringsBonus": 120,
       "duration": "Next voyage",
-      "note": "Produces an additional 120 rings over the next Voyage"
+      "note": "Produces an additional 120 rings"
     },
     {
       "id": "winter-s-ghosts",
@@ -110,7 +110,7 @@
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Reduces production by 1 rank over the next Voyage"
+      "note": "Reduces production by 1 rank"
     },
     {
       "id": "wolves-of-the-hungry-sea",
@@ -121,7 +121,7 @@
       "multiplier": 1,
       "ringsBonus": 0,
       "duration": "Next voyage",
-      "note": "Increases strength by an additional 5 ranks over the next Voyage"
+      "note": "Increases strength by an additional 5 ranks"
     }
   ]
 }
