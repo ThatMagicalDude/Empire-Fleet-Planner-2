@@ -10,7 +10,7 @@
       "rankModifier": 5,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Increases strength by an additional 5 ranks over the next Voyage"
     },
     {
@@ -21,7 +21,7 @@
       "rankModifier": -2,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Reduces production by 2 ranks over the next Voyage"
     },
     {
@@ -32,7 +32,7 @@
       "rankModifier": 5,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Increases strength by an additional 5 ranks over the next Voyage"
     },
     {
@@ -54,7 +54,7 @@
       "rankModifier": 5,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Increases strength by an additional 5 ranks over the next Voyage"
     },
     {
@@ -65,7 +65,7 @@
       "rankModifier": 5,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Increases strength by an additional 5 ranks over the next Voyage"
     },
     {
@@ -76,7 +76,7 @@
       "rankModifier": 6,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Increases strength by an additional 6 ranks over the next Voyage"
     },
     {
@@ -87,7 +87,7 @@
       "rankModifier": 5,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Increases strength by an additional 5 ranks over the next Voyage"
     },
     {
@@ -98,7 +98,7 @@
       "rankModifier": 0,
       "multiplier": 1,
       "ringsBonus": 120,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Produces an additional 120 rings over the next Voyage"
     },
     {
@@ -109,7 +109,7 @@
       "rankModifier": -1,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Reduces production by 1 rank over the next Voyage"
     },
     {
@@ -120,7 +120,7 @@
       "rankModifier": 5,
       "multiplier": 1,
       "ringsBonus": 0,
-      "duration": "next voyage",
+      "duration": "Next voyage",
       "note": "Increases strength by an additional 5 ranks over the next Voyage"
     }
   ]
