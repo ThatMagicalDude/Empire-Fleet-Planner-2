@@ -203,6 +203,9 @@ function isRitualAvailableForCurrentActivity(ritual) {
 
 function populateRitualSelect() {
   els.ritualSelect.innerHTML = "";
+
+  const currentActivity = getCurrentRitualOptionName();
+
   const available = Object.entries(RITUALS).filter(([key, ritual]) => {
     return key === "none" || isRitualAvailableForCurrentActivity(ritual);
   });
@@ -211,24 +214,71 @@ function populateRitualSelect() {
     state.ritual = "none";
   }
 
-  available.forEach(([key, ritual]) => {
-  const option = document.createElement("option");
-  option.value = key;
+  const noRitual = available.filter(([key]) => key === "none");
 
-  const optionScope =
-    ritual.option && ritual.option !== "All"
-      ? ` — ${ritual.option}`
-      : "";
-
-  const shortDescription =
-    ritual.note && ritual.note !== ritual.name
-      ? ` — ${ritual.note}`
-      : "";
-
-  option.textContent = `${ritual.name}${optionScope}${shortDescription}`;
-
-  els.ritualSelect.appendChild(option);
+  const activitySpecific = available.filter(([key, ritual]) => {
+    return key !== "none" && ritual.option === currentActivity;
   });
+
+  const allRituals = available.filter(([key, ritual]) => {
+    return key !== "none" && ritual.option === "All";
+  });
+
+  function addOption(key, ritual) {
+    const option = document.createElement("option");
+    option.value = key;
+
+    const shortDescription =
+      ritual.note && ritual.note !== ritual.name
+        ? ` — ${ritual.note}`
+        : "";
+
+    option.textContent = `${ritual.name}${shortDescription}`;
+
+    els.ritualSelect.appendChild(option);
+  }
+
+  noRitual.forEach(([key, ritual]) => addOption(key, ritual));
+
+  if (activitySpecific.length) {
+    const group = document.createElement("optgroup");
+    group.label = `${currentActivity} rituals`;
+
+    activitySpecific.forEach(([key, ritual]) => {
+      const option = document.createElement("option");
+      option.value = key;
+
+      const shortDescription =
+        ritual.note && ritual.note !== ritual.name
+          ? ` — ${ritual.note}`
+          : "";
+
+      option.textContent = `${ritual.name}${shortDescription}`;
+      group.appendChild(option);
+    });
+
+    els.ritualSelect.appendChild(group);
+  }
+
+  if (allRituals.length) {
+    const group = document.createElement("optgroup");
+    group.label = "All activities";
+
+    allRituals.forEach(([key, ritual]) => {
+      const option = document.createElement("option");
+      option.value = key;
+
+      const shortDescription =
+        ritual.note && ritual.note !== ritual.name
+          ? ` — ${ritual.note}`
+          : "";
+
+      option.textContent = `${ritual.name}${shortDescription}`;
+      group.appendChild(option);
+    });
+
+    els.ritualSelect.appendChild(group);
+  }
 
   els.ritualSelect.value = state.ritual;
 }
