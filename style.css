@@ -442,3 +442,7 @@ footer { color: #d8c79d; }
 
 .ritual-note--buff { border-left-color: var(--green); }
 .ritual-note--debuff { border-left-color: var(--red); }
+
+[hidden] {
+  display: none !important;
+}
