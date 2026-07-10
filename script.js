@@ -98,6 +98,8 @@ searchInput: document.querySelector("#searchInput"),
     emptyState: document.querySelector("#emptyState"),
     productionSummary: document.querySelector("#productionSummary"),
     copySummary: document.querySelector("#copySummary"),
+    characterName: document.querySelector("#characterName"),
+    fleetName: document.querySelector("#fleetName"),
     dialog: document.querySelector("#portDialog"),
     closeDialog: document.querySelector("#closeDialog"),
     dialogContent: document.querySelector("#dialogContent")
@@ -113,7 +115,11 @@ function requiredElementsExist() {
 "regionFilter", "materialFilter", "searchInput", "resetFilters",
 "visibleCount", "visibleCountLabel", "materialCount", "selectedPortShort", "selectedChoiceLabel",, "portChoiceControl", "optionChoiceControl",
     "chosenPort", "chosenOption", "portsHeading", "listEyebrow", "ports", "emptyState",
-    "productionSummary", "copySummary", "dialog", "closeDialog", "dialogContent"
+    "productionSummary",
+"copySummary",
+"characterName",
+"fleetName",
+"dialog", "closeDialog", "dialogContent"
   ];
   return required.every(key => els[key]);
 }
