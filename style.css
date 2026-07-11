@@ -501,3 +501,68 @@ footer { color: #d8c79d; }
 }
 .controls-grid--fleet {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+
+  /* --- Fleet setup layout fix --- */
+
+.controls-panel {
+  overflow: hidden;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.controls-grid--fleet {
+  grid-template-columns: 2fr 1fr 1.2fr 1.6fr 1.2fr;
+}
+
+.controls-grid .control,
+.controls-grid select,
+.controls-grid input,
+.controls-grid .static-value {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.effective-box {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ritual-note {
+  margin-bottom: 1.25rem;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(130px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  clear: both;
+}
+
+.stat-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1200px) {
+  .controls-grid,
+  .controls-grid--fleet {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .controls-grid,
+  .controls-grid--fleet,
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+}
