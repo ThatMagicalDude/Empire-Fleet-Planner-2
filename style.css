@@ -681,3 +681,214 @@ footer { color: #d8c79d; }
   color: #fff1b8;
   font-weight: 700;
 }
+/* =========================
+   Military-style Venture Cards for Fleet
+   Add to bottom of Fleet style.css
+   ========================= */
+
+.port-card,
+.option-card,
+.adventure-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 20px;
+  overflow: hidden;
+
+  background-color: var(--parchment) !important;
+  background-image:
+    radial-gradient(circle at 20% 0, rgba(255,255,255,.32), transparent 28rem),
+    repeating-linear-gradient(0deg, rgba(73,44,20,.022) 0 1px, transparent 1px 4px) !important;
+
+  border: 1px solid #4f5a61 !important;
+  border-radius: var(--radius);
+  box-shadow:
+    inset 0 0 0 3px rgba(255,244,204,.45),
+    0 0 0 2px rgba(143,154,161,.28),
+    var(--shadow) !important;
+
+  color: var(--ink);
+  transition: transform .17s ease, box-shadow .17s ease, border-color .17s ease;
+}
+
+.port-card::before,
+.option-card::before,
+.adventure-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+  border: 1px solid rgba(79,90,97,.38);
+}
+
+.port-card:hover,
+.option-card:hover,
+.adventure-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 0 3px rgba(255,244,204,.45),
+    0 18px 35px rgba(20,10,4,.42) !important;
+}
+
+.port-card.selected,
+.option-card.selected,
+.adventure-card.selected {
+  border-color: var(--red) !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(255,244,204,.45),
+    0 0 0 3px rgba(123,32,30,.35),
+    var(--shadow) !important;
+}
+
+.port-card .eyebrow,
+.option-card .eyebrow,
+.adventure-card .eyebrow {
+  color: var(--gold) !important;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.port-card h3,
+.option-card h3,
+.adventure-card h3 {
+  font-family: var(--display-font);
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--red) !important;
+  text-shadow: none;
+}
+
+.port-region,
+.option-region,
+.adventure-region,
+.port-card .card-subtitle,
+.option-card .card-subtitle,
+.adventure-card .card-subtitle {
+  margin: 4px 0 14px;
+  color: var(--muted) !important;
+  font-style: italic;
+}
+
+.port-card p,
+.option-card p,
+.adventure-card p,
+.port-card .description,
+.option-card .description,
+.adventure-card .description {
+  color: var(--ink-soft) !important;
+  line-height: 1.5;
+}
+
+.material-list,
+.reward-list,
+.option-rewards,
+.adventure-rewards {
+  display: grid;
+  gap: 7px;
+  margin: 14px 0 16px;
+}
+
+.material-row,
+.reward-row,
+.loot-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 10px;
+
+  background: rgba(255,247,220,.66) !important;
+  color: var(--ink) !important;
+  border: 1px solid rgba(91,62,33,.24) !important;
+}
+
+.material-row strong,
+.reward-row strong,
+.loot-row strong,
+.material-amount {
+  color: var(--red) !important;
+  text-align: right;
+}
+
+.port-card__actions,
+.option-card__actions,
+.adventure-card__actions,
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.port-card__actions button,
+.option-card__actions button,
+.adventure-card__actions button,
+.card-actions button {
+  flex: 1;
+}
+
+.select-port-button,
+.select-option-button,
+.select-adventure-button {
+  cursor: pointer;
+  color: #f7ebca;
+  background: linear-gradient(#9a2d32, #68161b) !important;
+  border: 1px solid #48100f !important;
+  border-radius: 3px;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.2),
+    0 2px 4px rgba(45,22,8,.3);
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.details-button,
+.card-details-button {
+  cursor: pointer;
+  color: #f4e5be;
+  background: linear-gradient(#68747c, #465057) !important;
+  border: 1px solid #30383d !important;
+  border-radius: 3px;
+  padding: 10px 14px;
+  font-weight: 700;
+  box-shadow: inset 0 1px rgba(255,255,255,.14);
+}
+
+.select-port-button:hover,
+.select-option-button:hover,
+.select-adventure-button:hover,
+.details-button:hover,
+.card-details-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+/* If Fleet uses plain card buttons without special classes */
+.port-card button:first-of-type,
+.option-card button:first-of-type,
+.adventure-card button:first-of-type {
+  background: linear-gradient(#9a2d32, #68161b) !important;
+  border: 1px solid #48100f !important;
+  color: #f7ebca !important;
+}
+
+.port-card button:last-of-type,
+.option-card button:last-of-type,
+.adventure-card button:last-of-type {
+  background: linear-gradient(#68747c, #465057) !important;
+  border: 1px solid #30383d !important;
+  color: #f4e5be !important;
+}
+
+@media (max-width: 700px) {
+  .port-card__actions,
+  .option-card__actions,
+  .adventure-card__actions,
+  .card-actions {
+    flex-direction: column;
+  }
+}
