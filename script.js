@@ -463,21 +463,53 @@ function renderEffectiveLevel() {
   els.ritualNote.classList.toggle("ritual-note--buff", ritual.rankModifier > 0 || ritual.ringsBonus > 0);
   els.ritualNote.classList.toggle("ritual-note--debuff", ritual.rankModifier < 0 || ritual.multiplier < 1);
 
-  const extraRingsRow = ritual.ringsBonus
-    ? `< class="breakdown-row"><span>Winds of Fortune</span><strong>+${ritual.ringsBonus} rings included below</strong></>`
-    : "";
+const extraRingsRow = ritual.ringsBonus
+  ? `<div class="breakdown-row"><span>Winds of Fortune</span><strong>+${ritual.ringsBonus} rings included below</strong></div>`
+  : "";
 
-  els.modifierBreakdown.innerHTML = `
-    < class="breakdown-row"><span>Activity</span><strong>${activityLabel}</strong></>
-    < class="breakdown-row"><span>Base fleet</span><strong>Level ${state.baseLevel}</strong></>
-    < class="breakdown-row"><span>Weirwood permanent upgrade</span><strong>+${state.weirwoodUpgrade}</strong></>
-    < class="breakdown-row"><span>Regional buff/debuff</span><strong>${state.debuff > 0 ? "+" : ""}${state.debuff}</strong></>
-    < class="breakdown-row"><span>Ritual</span><strong>${ritual.name}</strong></>
-    < class="breakdown-row"><span>Ritual rank change</span><strong>${ritual.rankModifier > 0 ? "+" : ""}${ritual.rankModifier}</strong></>
-    < class="breakdown-row"><span>Production multiplier</span><strong>${ritual.multiplier === 1 ? "×1" : `×${ritual.multiplier}`}</strong></>
-    ${extraRingsRow}
-    < class="breakdown-row breakdown-row--total"><span>Effective rank</span><strong>${level}</strong></>
-  `;
+els.modifierBreakdown.innerHTML = `
+  <div class="breakdown-row">
+    <span>Activity</span>
+    <strong>${activityLabel}</strong>
+  </div>
+
+  <div class="breakdown-row">
+    <span>Base fleet</span>
+    <strong>Level ${state.baseLevel}</strong>
+  </div>
+
+  <div class="breakdown-row">
+    <span>Weirwood permanent upgrade</span>
+    <strong>+${state.weirwoodUpgrade}</strong>
+  </div>
+
+  <div class="breakdown-row">
+    <span>Regional buff/debuff</span>
+    <strong>${state.debuff > 0 ? "+" : ""}${state.debuff}</strong>
+  </div>
+
+  <div class="breakdown-row">
+    <span>Ritual</span>
+    <strong>${ritual.name}</strong>
+  </div>
+
+  <div class="breakdown-row">
+    <span>Ritual rank change</span>
+    <strong>${ritual.rankModifier > 0 ? "+" : ""}${ritual.rankModifier}</strong>
+  </div>
+
+  <div class="breakdown-row">
+    <span>Production multiplier</span>
+    <strong>${ritual.multiplier === 1 ? "×1" : `×${ritual.multiplier}`}</strong>
+  </div>
+
+  ${extraRingsRow}
+
+  <div class="breakdown-row breakdown-row--total">
+    <span>Effective rank</span>
+    <strong>${level}</strong>
+  </div>
+`;
 }
 
 function materialRowHtml(material, level) {
