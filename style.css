@@ -598,3 +598,49 @@ footer { color: #d8c79d; }
     grid-template-columns: 1fr;
   }
 }
+/* Keep fleet setup controls on one row without clipping */
+.controls-grid--fleet {
+  grid-template-columns:
+    minmax(180px, 0.9fr)
+    minmax(100px, 0.55fr)
+    minmax(180px, 0.9fr)
+    minmax(320px, 1.7fr)
+    minmax(240px, 1.2fr);
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.controls-grid--fleet .control,
+.controls-grid--fleet select,
+.controls-grid--fleet input,
+.controls-grid--fleet .static-value {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#ritualControl {
+  min-width: 0;
+}
+
+#ritualSelect {
+  width: 100%;
+  text-overflow: ellipsis;
+}
+
+#debuffLevel {
+  width: 100%;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1100px) {
+  .controls-grid--fleet {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .controls-grid--fleet {
+    grid-template-columns: 1fr;
+  }
+}
