@@ -499,3 +499,5 @@ footer { color: #d8c79d; }
     grid-column: span 1;
   }
 }
+.controls-grid--fleet {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
