@@ -126,7 +126,7 @@ function requiredElementsExist() {
 
 function showFatalError(message) {
   const target = document.querySelector("#ports") || document.querySelector("main") || document.body;
-  const errorBox = document.createElement("div");
+  const errorBox = document.createElement("");
   errorBox.className = "empty-state fatal-error";
   errorBox.textContent = message;
   target.innerHTML = "";
@@ -161,7 +161,7 @@ function getActivityMaxLevel() {
 
 function getEffectiveLevel() {
   const ritual = RITUALS[state.ritual] || RITUALS.none;
-  const raw = state.baseLevel + state.weirwoodUpgrade - state.debuff + ritual.rankModifier;
+  const raw = state.baseLevel + state.weirwoodUpgrade + state.debuff + ritual.rankModifier;
   return Math.max(MIN_FLEET_LEVEL, Math.min(getActivityMaxLevel(), raw));
 }
 
@@ -464,19 +464,19 @@ function renderEffectiveLevel() {
   els.ritualNote.classList.toggle("ritual-note--debuff", ritual.rankModifier < 0 || ritual.multiplier < 1);
 
   const extraRingsRow = ritual.ringsBonus
-    ? `<div class="breakdown-row"><span>Winds of Fortune</span><strong>+${ritual.ringsBonus} rings included below</strong></div>`
+    ? `< class="breakdown-row"><span>Winds of Fortune</span><strong>+${ritual.ringsBonus} rings included below</strong></>`
     : "";
 
   els.modifierBreakdown.innerHTML = `
-    <div class="breakdown-row"><span>Activity</span><strong>${activityLabel}</strong></div>
-    <div class="breakdown-row"><span>Base fleet</span><strong>Level ${state.baseLevel}</strong></div>
-    <div class="breakdown-row"><span>Weirwood permanent upgrade</span><strong>+${state.weirwoodUpgrade}</strong></div>
-    <div class="breakdown-row"><span>Region / fleet debuff</span><strong>-${state.debuff}</strong></div>
-    <div class="breakdown-row"><span>Ritual</span><strong>${ritual.name}</strong></div>
-    <div class="breakdown-row"><span>Ritual rank change</span><strong>${ritual.rankModifier > 0 ? "+" : ""}${ritual.rankModifier}</strong></div>
-    <div class="breakdown-row"><span>Production multiplier</span><strong>${ritual.multiplier === 1 ? "×1" : `×${ritual.multiplier}`}</strong></div>
+    < class="breakdown-row"><span>Activity</span><strong>${activityLabel}</strong></>
+    < class="breakdown-row"><span>Base fleet</span><strong>Level ${state.baseLevel}</strong></>
+    < class="breakdown-row"><span>Weirwood permanent upgrade</span><strong>+${state.weirwoodUpgrade}</strong></>
+    < class="breakdown-row"><span>Regional buff/debuff</span><strong>${state.debuff > 0 ? "+" : ""}${state.debuff}</strong></>
+    < class="breakdown-row"><span>Ritual</span><strong>${ritual.name}</strong></>
+    < class="breakdown-row"><span>Ritual rank change</span><strong>${ritual.rankModifier > 0 ? "+" : ""}${ritual.rankModifier}</strong></>
+    < class="breakdown-row"><span>Production multiplier</span><strong>${ritual.multiplier === 1 ? "×1" : `×${ritual.multiplier}`}</strong></>
     ${extraRingsRow}
-    <div class="breakdown-row breakdown-row--total"><span>Effective rank</span><strong>${level}</strong></div>
+    < class="breakdown-row breakdown-row--total"><span>Effective rank</span><strong>${level}</strong></>
   `;
 }
 
@@ -484,10 +484,10 @@ function materialRowHtml(material, level) {
   const amount = getProductionAmount(material, level);
   const zeroClass = amount === 0 ? " material-zero" : "";
   return `
-    <div class="material-row${zeroClass}">
+    < class="material-row${zeroClass}">
       <span class="material-name">${material.name}</span>
       <span class="material-amount">×${amount}</span>
-    </div>
+    </>
   `;
 }
 
@@ -509,20 +509,20 @@ function renderTradePorts() {
     const materialsToDisplay = shownMaterials.length ? shownMaterials : port.materials.slice(0, 4);
 
     card.innerHTML = `
-      <div class="port-card__header">
-        <div>
+      < class="port-card__header">
+        <>
           <h3>${port.name}</h3>
           <span class="region-pill">${port.region}</span>
-        </div>
+        </>
         <span class="level-pill">Rank ${effectiveLevel}</span>
-      </div>
-      <div class="materials-list">
+      </>
+      < class="materials-list">
         ${materialsToDisplay.map(material => materialRowHtml(material, effectiveLevel)).join("")}
-      </div>
-      <div class="card-actions">
+      </>
+      < class="card-actions">
         <button type="button" data-action="choose-port" data-port-id="${port.id}">${port.id === state.selectedPortId ? "Selected" : "Choose port"}</button>
         <button type="button" data-action="details-port" data-port-id="${port.id}">Details</button>
-      </div>
+      </>
     `;
 
     els.ports.appendChild(card);
@@ -548,20 +548,20 @@ function renderOptionAdventures() {
     const materialsToDisplay = shownMaterials.length ? shownMaterials : adventure.materials.slice(0, 4);
 
     card.innerHTML = `
-      <div class="port-card__header">
-        <div>
+      < class="port-card__header">
+        <>
           <h3>${adventure.name}</h3>
           <span class="region-pill">${activity.name}</span>
-        </div>
+        </>
         <span class="level-pill">Rank ${effectiveLevel}</span>
-      </div>
-      <div class="materials-list">
+      </>
+      < class="materials-list">
         ${materialsToDisplay.map(material => materialRowHtml(material, effectiveLevel)).join("")}
-      </div>
-      <div class="card-actions">
+      </>
+      < class="card-actions">
         <button type="button" data-action="choose-option" data-option-id="${adventure.id}">${adventure.id === state.selectedAdventureId ? "Selected" : "Choose option"}</button>
         <button type="button" data-action="details-option" data-option-id="${adventure.id}">Details</button>
-      </div>
+      </>
     `;
 
     els.ports.appendChild(card);
@@ -633,10 +633,10 @@ function renderSelectedOutput() {
   }
 
   els.productionSummary.innerHTML = produced.map(item => `
-    <div class="summary-item">
+    < class="summary-item">
       <span>${item.name}</span>
       <strong>×${item.amount}</strong>
-    </div>
+    </>
   `).join("");
 }
 
@@ -680,9 +680,9 @@ function openDetails(kind, id) {
     <p class="eyebrow">${selection.subheading}</p>
     <h2>${selection.name}</h2>
     <p class="subtitle">Production shown for effective rank ${effectiveLevel}.</p>
-    <div class="dialog-material-grid">
+    < class="dialog-material-grid">
       ${selection.materials.map(material => materialRowHtml(material, effectiveLevel)).join("")}
-    </div>
+    </>
   `;
 
   if (typeof els.dialog.showModal === "function") els.dialog.showModal();
@@ -705,7 +705,7 @@ function copySummary() {
     `Activity: ${isTradeActivity() ? "Trading" : getActivityById()?.name}`,
     `Choice: ${selection ? selection.name : "None selected"}`,
     `Fleet level: ${state.baseLevel}`,
-    `${RITUALS[state.ritual]?.name || "No ritual"}; Weirwood +${state.weirwoodUpgrade}, Debuff -${state.debuff}`,
+    `${RITUALS[state.ritual?.name] || RITUALS[state.ritual]?.name || "No ritual"}; Weirwood +${state.weirwoodUpgrade}, Regional modifier ${state.debuff > 0 ? "+" : ""}${state.debuff}`,
     `Effective Rank: ${effectiveLevel}`,
     "",
     "Voyage production:"
@@ -796,7 +796,7 @@ function resetPlanner() {
 }
 
 function showToast(message) {
-  const toast = document.createElement("div");
+  const toast = document.createElement("");
   toast.className = "toast";
   toast.textContent = message;
   document.body.appendChild(toast);
