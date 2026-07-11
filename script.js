@@ -335,12 +335,22 @@ function populateModifierSelects() {
 }
 
   els.debuffLevel.innerHTML = "";
-  for (let i = 0; i <= 4; i += 1) {
-    const option = document.createElement("option");
-    option.value = String(i);
-    option.textContent = i === 0 ? "No debuff" : `-${i} level${i === 1 ? "" : "s"}`;
-    els.debuffLevel.appendChild(option);
+
+for (let i = -4; i <= 4; i += 1) {
+  const option = document.createElement("option");
+
+  option.value = String(i);
+
+  if (i === 0) {
+    option.textContent = "No regional modifier";
+  } else if (i > 0) {
+    option.textContent = `+${i} regional buff`;
+  } else {
+    option.textContent = `${i} regional debuff`;
   }
+
+  els.debuffLevel.appendChild(option);
+}
 
   populateRitualSelect();
 }
