@@ -446,3 +446,20 @@ footer { color: #d8c79d; }
 [hidden] {
   display: none !important;
 }
+
+.kofi-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #7a3e1d;
+  border-radius: 6px;
+  background: #6b3f24;
+  color: #fff3d1;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+
+.kofi-button:hover {
+  background: #8a4f2a;
+}
