@@ -668,3 +668,20 @@ footer { color: #d8c79d; }
   color: #fff1b8;
   font-weight: 700;
 }
+footer.site-credit img.creator-sigil {
+  width: 180px !important;
+  height: 180px !important;
+  max-width: 180px !important;
+  max-height: 180px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  margin: 0 auto 1rem !important;
+  border-radius: 12px;
+  border: 4px double #6f4324;
+  background: #ead7a1;
+  padding: 4px;
+  box-sizing: border-box;
+}
