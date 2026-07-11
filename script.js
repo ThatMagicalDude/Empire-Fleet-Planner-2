@@ -483,11 +483,12 @@ function renderEffectiveLevel() {
 function materialRowHtml(material, level) {
   const amount = getProductionAmount(material, level);
   const zeroClass = amount === 0 ? " material-zero" : "";
+
   return `
-    < class="material-row${zeroClass}">
+    <div class="material-row${zeroClass}">
       <span class="material-name">${material.name}</span>
       <span class="material-amount">×${amount}</span>
-    </>
+    </div>
   `;
 }
 
@@ -553,21 +554,27 @@ function renderOptionAdventures() {
     const materialsToDisplay = shownMaterials.length ? shownMaterials : adventure.materials.slice(0, 4);
 
     card.innerHTML = `
-      < class="port-card__header">
-        <>
-          <h3>${adventure.name}</h3>
-          <span class="region-pill">${activity.name}</span>
-        </>
-        <span class="level-pill">Rank ${effectiveLevel}</span>
-      </>
-      < class="materials-list">
-        ${materialsToDisplay.map(material => materialRowHtml(material, effectiveLevel)).join("")}
-      </>
-      < class="card-actions">
-        <button type="button" data-action="choose-option" data-option-id="${adventure.id}">${adventure.id === state.selectedAdventureId ? "Selected" : "Choose option"}</button>
-        <button type="button" data-action="details-option" data-option-id="${adventure.id}">Details</button>
-      </>
-    `;
+  <div class="port-card__header">
+    <div>
+      <h3>${adventure.name}</h3>
+      <span class="region-pill">${activity.name}</span>
+    </div>
+    <span class="level-pill">Rank ${effectiveLevel}</span>
+  </div>
+
+  <div class="materials-list">
+    ${materialsToDisplay.map(material => materialRowHtml(material, effectiveLevel)).join("")}
+  </div>
+
+  <div class="card-actions">
+    <button type="button" data-action="choose-option" data-option-id="${adventure.id}">
+      ${adventure.id === state.selectedAdventureId ? "Selected" : "Choose option"}
+    </button>
+    <button type="button" data-action="details-option" data-option-id="${adventure.id}">
+      Details
+    </button>
+  </div>
+`;
 
     els.ports.appendChild(card);
   });
