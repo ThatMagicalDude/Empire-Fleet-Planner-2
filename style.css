@@ -464,13 +464,14 @@ footer { color: #d8c79d; }
   background: #8a4f2a;
 }
 
-.creator-portrait {
-  width: 96px;
-  height: 96px;
+.creator-sigil {
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #8b1e1e;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  border: 4px double #6f4324;
+  background: #ead7a1;
+  padding: 4px;
   display: block;
   margin: 0 auto 0.75rem;
 }
