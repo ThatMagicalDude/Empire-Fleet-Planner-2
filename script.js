@@ -672,16 +672,16 @@ function renderSelectedOutput() {
   }
 
   if (!produced.length) {
-    els.productionSummary.innerHTML = `<p class="empty-mini">No rewards at effective rank ${getEffectiveLevel()}.</p>`;
-    return;
-  }
+  els.productionSummary.innerHTML = `<p class="empty-mini">No rewards at effective rank ${getEffectiveLevel()}.</p>`;
+  return;
+}
 
-  els.productionSummary.innerHTML = produced.map(item => `
-    < class="summary-item">
-      <span>${item.name}</span>
-      <strong>×${item.amount}</strong>
-    </>
-  `).join("");
+els.productionSummary.innerHTML = produced.map(item => `
+  <div class="summary-item">
+    <span>${item.name}</span>
+    <strong>×${item.amount}</strong>
+  </div>
+`).join("");
 }
 
 function renderAll() {
