@@ -508,23 +508,28 @@ function renderTradePorts() {
     const shownMaterials = getVisibleMaterials(port.materials, effectiveLevel);
     const materialsToDisplay = shownMaterials.length ? shownMaterials : port.materials.slice(0, 4);
 
-    card.innerHTML = `
-      < class="port-card__header">
-        <>
-          <h3>${port.name}</h3>
-          <span class="region-pill">${port.region}</span>
-        </>
-        <span class="level-pill">Rank ${effectiveLevel}</span>
-      </>
-      < class="materials-list">
-        ${materialsToDisplay.map(material => materialRowHtml(material, effectiveLevel)).join("")}
-      </>
-      < class="card-actions">
-        <button type="button" data-action="choose-port" data-port-id="${port.id}">${port.id === state.selectedPortId ? "Selected" : "Choose port"}</button>
-        <button type="button" data-action="details-port" data-port-id="${port.id}">Details</button>
-      </>
-    `;
+ card.innerHTML = `
+  <div class="port-card__header">
+    <div>
+      <h3>${port.name}</h3>
+      <span class="region-pill">${port.region}</span>
+    </div>
+    <span class="level-pill">Rank ${effectiveLevel}</span>
+  </div>
 
+  <div class="materials-list">
+    ${materialsToDisplay.map(material => materialRowHtml(material, effectiveLevel)).join("")}
+  </div>
+
+  <div class="card-actions">
+    <button type="button" data-action="choose-port" data-port-id="${port.id}">
+      ${port.id === state.selectedPortId ? "Selected" : "Choose port"}
+    </button>
+    <button type="button" data-action="details-port" data-port-id="${port.id}">
+      Details
+    </button>
+  </div>
+`;
     els.ports.appendChild(card);
   });
 }
