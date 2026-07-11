@@ -566,3 +566,35 @@ footer { color: #d8c79d; }
     grid-template-columns: 1fr;
   }
 }
+/* Fleet setup column sizing */
+.controls-grid--fleet {
+  grid-template-columns: 1.1fr 0.7fr 1fr 1.7fr 1fr;
+}
+
+#activityControl {
+  grid-column: auto;
+}
+
+#ritualControl {
+  min-width: 320px;
+}
+
+#ritualSelect {
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .controls-grid--fleet {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  #ritualControl {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .controls-grid--fleet {
+    grid-template-columns: 1fr;
+  }
+}
