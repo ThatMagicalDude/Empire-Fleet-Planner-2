@@ -644,3 +644,6 @@ footer { color: #d8c79d; }
     grid-template-columns: 1fr;
   }
 }
+  .site-credit {
+  padding-left: 2rem;
+}
